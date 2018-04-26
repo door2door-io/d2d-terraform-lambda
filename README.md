@@ -96,3 +96,10 @@ module "lambda" {
  - `lambda_arn` - ARN of the Lambda function
  - `role_arn` - ARN of the execution role for the Lambda function
  - `role_name` - name of the execution role for the Lambda function
+ - `qualified_arn` - the Amazon Resource Name (ARN) identifying your Lambda Function Version (if versioning is enabled via publish = true)
+ - `invoke_arn` - the ARN to be used for invoking Lambda Function from API Gateway - to be used in aws_api_gateway_integration's uri
+ - `version` - latest published version of your Lambda Function
+ - `last_modified` - the date this resource was last modified
+ - `source_code_hash` - base64-encoded representation of raw SHA-256 sum of the zip file, provided either via filename or s3_* parameters
+ - `source_code_size` - the size in bytes of the function .zip file
+
