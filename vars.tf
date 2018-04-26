@@ -67,6 +67,11 @@ variable "inline_policies" {
   description = "List of inline json policy documents to include in the Lambda role"
   default     = []
 }
+variable "publish" {
+  type        = "string"
+  description = "Whether to publish creation/change as new Lambda Function Version"
+  default     = true
+}
 
 ###############################################################################
 # Internal variables

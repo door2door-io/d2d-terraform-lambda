@@ -13,6 +13,7 @@ resource "aws_lambda_function" "function" {
   filename         = "${local.deploy_archive_file}"
   source_code_hash = "${local.deploy_archive_hash}"
   environment      = "${local.lambda_environment}"
+  publish          = "${var.publish}"
   tags             = "${merge(var.tags, map("Name", var.function_name))}"
   lifecycle {
     # Avoid triggering code updates when temp path changes
@@ -37,6 +38,7 @@ resource "aws_lambda_function" "function_vpc" {
   filename         = "${local.deploy_archive_file}"
   source_code_hash = "${local.deploy_archive_hash}"
   environment      = "${local.lambda_environment}"
+  publish          = "${var.publish}"
   tags             = "${merge(var.tags, map("Name", var.function_name))}"
   vpc_config {
     subnet_ids         = ["${var.subnet_ids}"]

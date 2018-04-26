@@ -28,6 +28,7 @@ Function source code is built locally using this Docker image https://github.com
 - `tags` - map of tags to add to the Lambda function (defaults to _{}_)
 - `attach_policies` - list of IAM policies to attach to the Lambda role (defaults to _[]_)
 - `inline_policies` - list of inline json policy documents to include in the Lambda role (defaults to _[]_)
+- `publish` - Whether to publish creation/change as new Lambda Function Version (defaults to _true_)
 
 
 ## Usage
