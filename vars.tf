@@ -67,6 +67,11 @@ variable "inline_policies" {
   description = "List of inline json policy documents to include in the Lambda role"
   default     = []
 }
+variable "publish" {
+  type        = "string"
+  description = "Whether to publish creation/change as new Lambda Function Version"
+  default     = true
+}
 
 ###############################################################################
 # Internal variables
@@ -102,10 +107,6 @@ locals {
   # https://github.com/hashicorp/terraform/issues/12570#issuecomment-359886242
   attach_policies_count = "${length(var.attach_policies)}"
   inline_policies_count = "${length(var.inline_policies)}"
-  # Handle empty lambda environment using tricky workaround because of TF issue
-  # https://github.com/hashicorp/terraform/issues/12453
-  lookup_lambda_environment = "${map("empty", map("terraform_empty_environment", ""), "get", var.env_variables)}"
-  lambda_environment = ["${map("variables", local.lookup_lambda_environment[(length(var.env_variables) == 0 ? "empty" : "get")])}"]
   # empty function archive file
   empty_function = "${path.module}/empty-function.zip"
   # build base path
