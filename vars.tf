@@ -72,6 +72,9 @@ variable "publish" {
   description = "Whether to publish creation/change as new Lambda Function Version"
   default     = true
 }
+variable "count" {
+  default = 1
+}
 
 ###############################################################################
 # Internal variables
