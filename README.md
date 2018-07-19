@@ -18,6 +18,7 @@ Function source code is built locally using this Docker image https://github.com
 
 ### Optional arguments
 
+- `count` - Whether to create a lambda function or not at all (defaults to _1_)
 - `description` - lambda function description
 - `source_code_path` - path to function's source code to manage deployment (defaults to _""_)
 - `timeout` - function execution time in seconds after which Lambda terminates the function (defaults to _10_)
@@ -102,4 +103,3 @@ module "lambda" {
  - `last_modified` - the date this resource was last modified
  - `source_code_hash` - base64-encoded representation of raw SHA-256 sum of the zip file, provided either via filename or s3_* parameters
  - `source_code_size` - the size in bytes of the function .zip file
-
