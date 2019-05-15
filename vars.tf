@@ -82,6 +82,7 @@ variable "supported_runtimes" {
   default     = [
     "nodejs4.3",
     "nodejs6.10",
+    "nodejs8.10",
     "python2.7",
     "python3.6"
   ]
