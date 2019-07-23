@@ -32,6 +32,11 @@ variable "timeout" {
   description = "Function execution time in seconds after which Lambda terminates the function"
   default     = "10"
 }
+variable "ignore_changes" {
+  type        = "list"
+  description = "Avoid redeploying lambda when executing terraform"
+  default     = ["filename"]
+}
 variable "memory_size" {
   type        = "string"
   description = "Amount of memory in MB allocated to the Lambda function"
