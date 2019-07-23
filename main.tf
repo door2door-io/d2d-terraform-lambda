@@ -18,7 +18,7 @@ resource "aws_lambda_function" "function" {
   lifecycle {
     # Avoid triggering code updates when temp path changes
     # because of different Terraform execution environments
-    ignore_changes = ["filename"]
+    ignore_changes = ["filename", "source_code_hash"]
   }
 }
 
@@ -47,7 +47,7 @@ resource "aws_lambda_function" "function_vpc" {
   lifecycle {
     # Avoid triggering code updates when temp path changes
     # because of different Terraform execution environments
-    ignore_changes = ["filename"]
+    ignore_changes = ["filename", "source_code_hash"]
   }
 }
 
@@ -71,7 +71,7 @@ resource "aws_lambda_function" "function_noenv" {
   lifecycle {
     # Avoid triggering code updates when temp path changes
     # because of different Terraform execution environments
-    ignore_changes = ["filename"]
+    ignore_changes = ["filename", "source_code_hash"]
   }
 }
 
@@ -99,6 +99,6 @@ resource "aws_lambda_function" "function_vpc_noenv" {
   lifecycle {
     # Avoid triggering code updates when temp path changes
     # because of different Terraform execution environments
-    ignore_changes = ["filename"]
+    ignore_changes = ["filename", "source_code_hash"]
   }
 }
