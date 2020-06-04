@@ -2,7 +2,7 @@
 # non-VPC Lambda
 
 resource "aws_lambda_function" "function" {
-  count            = "${length(var.subnet_ids) == 0 && length(var.env_variables) > 0 ? 1 : 0}"
+  count            = "${var.count == 1 && length(var.subnet_ids) == 0 && length(var.env_variables) > 0 ? 1 : 0}"
   function_name    = "${var.function_name}"
   description      = "${var.description}"
   role             = "${aws_iam_role.lambda.arn}"
@@ -27,7 +27,7 @@ resource "aws_lambda_function" "function" {
 # VPC Lambda
 
 resource "aws_lambda_function" "function_vpc" {
-  count            = "${length(var.subnet_ids) != 0 && length(var.env_variables) > 0 ? 1 : 0}"
+  count            = "${var.count == 1 && length(var.subnet_ids) != 0 && length(var.env_variables) > 0 ? 1 : 0}"
   function_name    = "${var.function_name}"
   description      = "${var.description}"
   role             = "${aws_iam_role.lambda.arn}"
@@ -56,7 +56,7 @@ resource "aws_lambda_function" "function_vpc" {
 # non-VPC Lambda / empty environment
 
 resource "aws_lambda_function" "function_noenv" {
-  count            = "${length(var.subnet_ids) == 0 && length(var.env_variables) == 0 ? 1 : 0}"
+  count            = "${var.count == 1 && length(var.subnet_ids) == 0 && length(var.env_variables) == 0 ? 1 : 0}"
   function_name    = "${var.function_name}"
   description      = "${var.description}"
   role             = "${aws_iam_role.lambda.arn}"
@@ -80,7 +80,7 @@ resource "aws_lambda_function" "function_noenv" {
 # VPC Lambda / empty environment
 
 resource "aws_lambda_function" "function_vpc_noenv" {
-  count            = "${length(var.subnet_ids) != 0 && length(var.env_variables) == 0 ? 1 : 0}"
+  count            = "${var.count == 1 && length(var.subnet_ids) != 0 && length(var.env_variables) == 0 ? 1 : 0}"
   function_name    = "${var.function_name}"
   description      = "${var.description}"
   role             = "${aws_iam_role.lambda.arn}"
