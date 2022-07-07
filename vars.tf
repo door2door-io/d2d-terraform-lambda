@@ -84,6 +84,9 @@ variable "supported_runtimes" {
     "nodejs6.10",
     "nodejs8.10",
     "nodejs10.x",
+    "nodejs12.x",
+    "nodejs14.x",
+    "nodejs16.x",
     "python2.7",
     "python3.6"
   ]
